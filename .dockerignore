@@ -1,0 +1,8 @@
+# Игнорируем ненужные файлы при сборке образа
+.cursor
+.git
+.gitignore
+.dockerignore
+*.md
+docker-compose.yml
+workspace/

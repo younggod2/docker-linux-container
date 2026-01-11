@@ -1,0 +1,22 @@
+services:
+  linux-lab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/arm64
+    container_name: linux-learning-lab
+    volumes:
+      # Монтируем текущую директорию для сохранения файлов
+      - ./workspace:/workspace
+      # Монтируем домашнюю директорию для сохранения настроек
+      - linux-home:/root
+    stdin_open: true
+    tty: true
+    # Автоматический перезапуск контейнера при выходе (кроме ручной остановки)
+    restart: unless-stopped
+    # Запускаем контейнер в интерактивном режиме
+    command: /bin/zsh
+
+volumes:
+  linux-home:
+    driver: local
